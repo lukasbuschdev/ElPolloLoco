@@ -5,14 +5,33 @@ class ThrowableObject extends MovableObject {
         this.y = y;
         this.height = 60;
         this.width = 40;
-        this.trow();
+        // this.otherDirection = otherDirection;
+        // this.checkDirectionToThrow();
+        this.throwForward();
     }
 
-    trow() {
+    // checkDirectionToThrow() {
+    //     if(this.otherDirection == false) {
+    //         throwForward(); 
+    //         return
+    //     } else if(this.otherDirection == true) {
+    //         throwBackward();
+    //     } 
+    // }
+
+    throwForward() {
         this.speedY = 30;
         this.applyGravity();
         setInterval( () => {
             this.x += 10;
         }, 25);
     }
+
+    // throwBackward() {
+    //     this.speedY = 30;
+    //     this.applyGravity();
+    //     setInterval( () => {
+    //         this.x -= 10;
+    //     }, 25);
+    // }
 }
