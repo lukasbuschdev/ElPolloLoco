@@ -6,8 +6,10 @@ class World {
     keyboard;
     camera_x = 0;
     statusBar = new StatusBar();
+    statusBarCoins = new StatusBarCoins();
     throwableObject = [];
     coins = new Coins();
+    endscreen;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -54,6 +56,7 @@ class World {
 
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBar);
+        this.addToMap(this.statusBarCoins);
         this.ctx.translate(this.camera_x, 0);
 
         this.addToMap(this.character);
@@ -101,4 +104,8 @@ class World {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
+
+    // gameOver() {
+    //     this.canvas.loadImage('img/9_intro_outro_screens/game_over/game over!.png');
+    // }
 }

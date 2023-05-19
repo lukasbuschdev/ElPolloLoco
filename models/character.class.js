@@ -75,7 +75,23 @@ class Character extends MovableObject {
 
             this.world.camera_x = -this.x + 100;
         }, 40);
-
+        
+        let intervalId = setInterval(() => {
+            if(this.isDead()) {
+                this.playAnimation(this.images_dead);
+                clearInterval(intervalId); // Stoppt das Intervall
+                return gameOver();
+            } else if(this.isHurt()) {
+                this.playAnimation(this.images_hurt);
+            } else if(this.isAboveGround()) {
+                this.playAnimation(this.images_jumping);
+            } else {
+                if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                    this.playAnimation(this.images_walking);
+                }
+            }
+        }, 40);     
+           
         // setInterval(() => {
         //     if(this.isDead()) {
         //         this.playAnimation(this.images_dead);
@@ -90,23 +106,8 @@ class Character extends MovableObject {
         //         }
         //     }
         // }, 40)
-
-        let intervalId = setInterval(() => {
-            if(this.isDead()) {
-                this.playAnimation(this.images_dead);
-                clearInterval(intervalId); // Stoppt das Intervall
-            } else if(this.isHurt()) {
-                this.playAnimation(this.images_hurt);
-            } else if(this.isAboveGround()) {
-                this.playAnimation(this.images_jumping);
-            } else {
-                if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    this.playAnimation(this.images_walking);
-                }
-            }
-        }, 40);        
     }
-
+    
     jump() {
         this.speedY = 30;
     }
