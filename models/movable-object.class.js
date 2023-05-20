@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     otherDirection = false;
+    coinsCollected = 0;
 
     applyGravity() {
         setInterval(() => {
@@ -68,4 +69,19 @@ class MovableObject extends DrawableObject {
     jump() {
         this.speedY = 30;
     }
+
+    gameOver() {
+        this.speedY = 30;
+        this.applyGravity();
+        
+        let stopAnimation = setInterval(() => {
+            this.x += 2.5;
+            this.y += 5;
+        }, 1000/60);
+        
+        setTimeout(() => {
+            clearInterval(stopAnimation);
+        }, 1500);
+    }
+    
 }

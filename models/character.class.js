@@ -80,7 +80,7 @@ class Character extends MovableObject {
             if(this.isDead()) {
                 this.playAnimation(this.images_dead);
                 clearInterval(intervalId); // Stoppt das Intervall
-                return gameOver();
+                this.gameOver();
             } else if(this.isHurt()) {
                 this.playAnimation(this.images_hurt);
             } else if(this.isAboveGround()) {
@@ -90,23 +90,16 @@ class Character extends MovableObject {
                     this.playAnimation(this.images_walking);
                 }
             }
-        }, 40);     
-           
-        // setInterval(() => {
-        //     if(this.isDead()) {
-        //         this.playAnimation(this.images_dead);
-        //     } else if(this.isHurt()) {
-        //         this.playAnimation(this.images_hurt);
-        //     } else if(this.isAboveGround()) {
-        //         this.playAnimation(this.images_jumping);
-        //     } else {
-
-        //         if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-        //             this.playAnimation(this.images_walking);
-        //         }
-        //     }
-        // }, 40)
+        }, 40); 
     }
+
+    // gameOver() {
+    //     this.speedY = 10;
+    //     this.applyGravity();
+    //     setInterval( () => {
+    //         this.x = 5;
+    //     }, 25);
+    // }
     
     jump() {
         this.speedY = 30;

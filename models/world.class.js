@@ -9,7 +9,7 @@ class World {
     statusBarCoins = new StatusBarCoins();
     throwableObject = [];
     coins = new Coins();
-    endscreen;
+    endscreen = new Endscreen();
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -45,6 +45,12 @@ class World {
                 this.statusBar.setPercentage(this.character.energy);
             }
         })
+
+        this.level.coins.forEach((coin) => {
+            if(this.character.isColliding(coin)) {
+                // this.statusBarCoins.setPercentage(this.)
+            }
+        })
     }
 
 
@@ -64,6 +70,7 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.throwableObject);
+        // this.addObjectsToMap(this.endscreen);
 
         this.ctx.translate(-this.camera_x, 0);
 
@@ -106,6 +113,6 @@ class World {
     }
 
     // gameOver() {
-    //     this.canvas.loadImage('img/9_intro_outro_screens/game_over/game over!.png');
+    //     this.canvas.loadImage(this.endscreen);
     // }
 }
