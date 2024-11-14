@@ -1,15 +1,37 @@
+/**
+ * Represents keyboard input for controlling the game character.
+ * This class tracks both keyboard and touchscreen button states.
+ */
 class Keyboard {
+
+    /** @type {boolean} - Indicates if the left arrow or left button is pressed. */
     LEFT = false;
+
+    /** @type {boolean} - Indicates if the right arrow or right button is pressed. */
     RIGHT = false;
+
+    /** @type {boolean} - Indicates if the up arrow or up button is pressed. */
     UP = false;
+
+    /** @type {boolean} - Indicates if the down arrow or down button is pressed. */
     DOWN = false;
+
+    /** @type {boolean} - Indicates if the space bar or jump button is pressed. */
     SPACE = false;
+
+    /** @type {boolean} - Indicates if the 'D' key or throw button is pressed. */
     D = false;
 
+    /**
+     * Initializes a new instance of the `Keyboard` class and sets up event listeners for button presses.
+     */
     constructor() {
         this.pressedBtnsEvents();
     }
 
+    /**
+     * Sets up event listeners for touch-based controls and updates the respective properties when buttons are pressed or released.
+     */
     pressedBtnsEvents() {
         setInterval(() => {
             document.getElementById('btnLeft').addEventListener('touchstart', (e) => {

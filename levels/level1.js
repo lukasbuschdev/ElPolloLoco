@@ -1,5 +1,13 @@
+/**
+ * The main level instance for the game.
+ * @type {Level}
+ */
 let level1;
 
+/**
+ * Creates an array of enemy objects to populate the game level.
+ * @returns {Array<Chicken | SmallChicken | Endboss>} An array of enemy instances.
+ */
 function createEnemys() {
     return [
         new Chicken(),
@@ -12,10 +20,19 @@ function createEnemys() {
     ];
 }
 
+/**
+ * Creates an array of cloud objects for the game's background.
+ * @returns {Array<Cloud>} An array of cloud instances.
+ */
 function createClouds() {
     return [new Cloud()];
 }
 
+/**
+ * Creates an array of background objects for the game level.
+ * Each object represents a layer in the parallax background effect.
+ * @returns {Array<BackgroundObject>} An array of background objects with image paths and positions.
+ */
 function createBackground() {
     return [
         new BackgroundObject('img/5_background/layers/air.png', -719),
@@ -41,6 +58,11 @@ function createBackground() {
     ];
 }
 
+/**
+ * Starts the game by initializing the level with enemies, clouds, background, coins, and bottles.
+ * Sets up the status bars for health, coins, bottles, and end boss health.
+ * Hides the start screen and displays the game level.
+ */
 function start() {
     let enemys = createEnemys();
     let clouds = createClouds();
@@ -53,11 +75,11 @@ function start() {
     let statusBarBottle = new StatusBarBottle();
     let statusBarEndboss = new StatusBarEndBoss();
 
-    for(let i = 1; i < 15; i++) {
+    for (let i = 1; i < 15; i++) {
         coins.push(new Coin(i * 100));
     }
 
-    for(let i = 1; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
         bottles.push(new Bottle(i * 100));
     }
 
