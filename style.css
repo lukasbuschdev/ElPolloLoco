@@ -1,0 +1,292 @@
+@font-face {
+    font-family: "zabars";
+    src: url("./fonts/zabars.ttf");
+}
+
+
+
+body {
+    font-family: zabars, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 100svh;
+    background: #fff url('img/0_background_body/desert.jpg');
+    background-size: cover;
+}
+
+
+button {
+    color: black;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#content {
+    position: relative;
+}
+
+.fullscreen {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.fullscreen img {
+    margin-top: 10px;
+    transition: all ease-in-out 175ms;
+    width: 32px;
+    height: 32px;
+}
+
+.fullscreen img:hover {
+    transform: scale(1.2);
+    transition: all ease-in-out 175ms;
+}
+
+#startscreen img,
+#gameOver img,
+#lost img,
+#settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.settingsCard {
+    height: 80%;
+    width: 40%;
+    background-image: linear-gradient(rgb(255, 136, 0), #fffb00, rgb(255, 136, 0));
+    margin-left: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.settingsCard img {
+    width: 64px;
+    height: 64px;
+}
+
+.d-flex-center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 22px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px;
+}
+
+.d-flex-center img {
+    height: 16px;
+    width: 30px;
+    object-fit: contain;
+}
+
+.d-flex-center h2 {
+    letter-spacing: 5px;
+}
+
+.dkey {
+    width: 32px !important;
+    height: 32px !important;
+    
+}
+
+#startbtn,
+#restartBtn {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#startbtn button,
+#restartBtn button {
+    cursor: pointer;
+    background-image: linear-gradient(rgb(255, 136, 0), #fffb00, rgb(255, 136, 0));
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    font-family: zabars, sans-serif;
+    font-size: 24px;
+    border: none;
+    transform: scale(1);
+    transition: transform 75ms ease-in-out;
+}
+
+#startbtn button:hover,
+#restartBtn button:hover {
+    transform: scale(1.05);
+}
+
+.turn {
+    display: none;
+}
+
+.turn img {
+    filter: invert(1);
+    height: 200px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    color: #ffe600;
+}
+
+.gap-10 {
+    display: flex;
+    gap: 10px;
+}
+
+.hud {
+    display: none;
+}
+
+canvas {
+    background-color: black;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes cooldown {
+    0% {
+        background-color: #b1b1b1;
+    }
+
+    100% {
+        background-color: #EFEFEF;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    }
+    
+    .turn {
+        position: absolute;
+        inset: 0 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        height: 100svh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1;
+        color: #fff;
+    }   
+
+    #startbtn,
+    #restartBtn {
+        bottom: unset;
+        top: 30px
+    }
+
+    .fullscreen img:hover {
+      transform: none;
+      transition: none;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100svh;
+
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #startbtn,
+    #restartBtn {
+        bottom: 20px;
+        top: unset;
+    }
+    
+    .fullscreen img:nth-child(2){
+        display: none;
+    }
+
+    .turn {
+        display: none;
+    }
+
+    .hud {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    .subcontainerHud {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin: 0 50px;
+    }
+
+    .CtrlBtn {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: none;
+    }
+
+    .CtrlBtn img {
+        height: 42px;
+        width: 42px;
+        object-fit: contain;
+    }
+
+    #btnThrow {
+        height: 55px;
+        width: 55px;
+        background-image: linear-gradient(rgb(255, 136, 0), #fffb00, rgb(255, 136, 0))
+    }
+}

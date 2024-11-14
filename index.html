@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pollo Loco</title>
+    <link rel="shortcut icon" href="./img/3_enemies_chicken/chicken_normal/1_walk/3_w.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="./models/drawable-object.class.js"></script>
+    <script src="./models/status-bar.class.js"></script>
+    <script src="./models/status-bar-coin.class.js"></script>
+    <script src="./models/status-bar-bottle.class.js"></script>
+    <script src="./models/status-bar-endboss.class.js"></script>
+    <script src="./models/movable-object.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/chicken.class.js"></script>
+    <script src="./models/small-chicken.class.js"></script>
+    <script src="./models/coin.class.js"></script>
+    <script src="./models/bottle.class.js"></script>
+    <script src="./models/cloud.class.js"></script>
+    <script src="./models/world.class.js"></script>
+    <script src="./models/background-object.class.js"></script>
+    <script src="./models/keyboard.class.js"></script>
+    <script src="./models/level.class.js"></script>
+    <script src="./models/throwable-object.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
+    <script src="./levels/level1.js"></script>
+    <script src="./js/game.js"></script>
+</head>
+
+<body>
+    <h1>El Pollo Loco</h1>
+    <div id="content">
+        <canvas id="canvas" width="720" height="480"></canvas>
+        <div class="game-images">
+            <div id="startscreen">
+                <img src="img/9_intro_outro_screens/start/startscreen_2.png" alt="startscreen">
+                <div id="startbtn">
+                    <button class="btns" onclick="start();init()">Start</button>
+                </div>
+            </div>
+
+            <div id="gameOver" class="d-none">
+                <img src="img/9_intro_outro_screens/game_over/game over!.png" alt="game over">
+                <div id="restartBtn">
+                    <button class="btns" onclick="restart('gameOver')">Restart</button>
+                </div>
+            </div>
+            <div id="lost" class="d-none">
+                <img src="img\9_intro_outro_screens\game_over\oh no you lost!.png" alt="lost">
+                <div id="restartBtn">
+                    <button class="btns" onclick="restart('lost')">Restart</button>
+                </div>
+            </div>
+            
+            <div id="settings" class="d-none">
+                <div class="settingsCard">
+                    <div class="d-flex-center">
+                        <h2>Controls</h2>
+                    </div>
+                    <div class="d-flex-center">
+                        <div class="row">
+                            <img src="img/10_icons/arrow-left.png" alt="arrowleft">
+                            <img src="img/10_icons/arrow-right.png" alt="arrowright">
+                        </div>
+                        <p>=</p>
+                        <div class="row">
+                            <span>Move</span>
+                        </div>
+                    </div>
+                    <div class="d-flex-center">
+                        <div class="row">
+                            <span>D</span>
+                        </div>
+                        <p>=</p>
+                        <div class="row">
+                            <span>ThrowBottle</span>
+                        </div>
+                    </div>
+                    <div class="d-flex-center">
+                        <div class="row">
+                            <span>Space</span>
+                        </div>
+                        <p>=</p>
+                        <div class="row">
+                            <span>Jump</span>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hud">
+                <div class="subcontainerHud">
+                    <button class="CtrlBtn" id="btnLeft"><img src="img/10_icons/left.png"></button>
+                    <button class="CtrlBtn" id="btnRight"><img src="img/10_icons/right.png"></button>
+                </div>
+                <div class="subcontainerHud">
+                    <button class="CtrlBtn" id="btnJump"><img src="img/10_icons/up.png"></button>
+                    <button class="CtrlBtn" id="btnThrow"><img src="img/6_salsa_bottle/salsa_bottle.png"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn fullscreen">
+            <img id="volume" src="img/10_icons/volume.png" alt="VolumeON" onclick="setAudio()">
+            <img id="fullscreenBtn" src="img/10_icons/fullscreen.png" alt="Fullscreen" onclick="toggleFullscreen()">
+            <img id="settingsBtn" src="img/10_icons/settings-icon.png" alt="Settings" onclick="openSettings()">
+        </div>
+    </div>
+    <div class="turn">
+        <img src="img/10_icons/turning-phone.png">
+    </div>
+</body>
+</html>
